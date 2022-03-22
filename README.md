@@ -10,10 +10,22 @@
 ## comandos usados no git
 git init
 git add .
-git commit -m "first commit"
+git commit -m "...."
 git branch -M main
 git remote add origin https://github.com/NOVACAP/sisemendas.git
 git push -u origin main
+
+## Comandos usados mo projeto artisan
+laravel new sisemendas
+php artisan make:model Amendment -crmfs
+composer require laravel/ui --dev
+php artisan ui:auth --doc https://laravel.com/docs/6.x/frontend
+composer require lucascudo/laravel-pt-br-localization --dev
+php artisan vendor:publish --tag=laravel-pt-br-localization
+// Altere Linha 83 do arquivo config/app.php para:
+'locale' => 'pt-BR',
+// Altere Linha 70 do arquivo config/app.php para:
+'timezone' => 'America/Sao_Paulo',
 
 ## About Laravel
 

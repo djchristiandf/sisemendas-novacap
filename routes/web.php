@@ -27,3 +27,7 @@ Route::controller(AmendmentController::class)->group(function () {
     Route::delete('/amendments/{id}', 'destroy')->name('amendments.destroy');
     Route::get('/amendments/{id}/edit', 'edit')->name('amendments.edit');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -12,8 +12,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/custom.css')}}" rel="stylesheet">
+
+    <style>
+        body.image {
+            background-image: url('/image/governo2.jpg');
+            background-size: cover;
+            background-position-y: 25%;
+        }
+    </style>
   </head>
-  <body>
+  <body class="{{ url('/login') ? 'image' : '' }}">
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
@@ -26,34 +34,35 @@
 
         <!-- /.navbar-header -->
         <div class="collapse navbar-collapse" id="navbar-toggler">
-
-          <ul class="navbar-nav">
+          @auth
+            <ul class="navbar-nav">
             {{-- <li class="nav-item"><a href="#" class="nav-link">Emendas</a></li> --}}
-            <li class="nav-item active"><a href="{{ route('amendments.index') }}" class="nav-link">Emendas</a></li>
-          </ul>
-
+              <li class="nav-item active"><a href="{{ route('amendments.index') }}" class="nav-link">Emendas</a></li>
+            </ul>
+          @endauth
           <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item mr-2"><a href="#" class="btn btn-outline-secondary">Login</a></li>
-            <li class="nav-item"><a href="#" class="btn btn-outline-primary">Registrar</a></li>
-
+            @guest
+              <li class="nav-item mr-2"><a href="{{ route('login') }}" class="btn btn-outline-secondary">Login</a></li>
+              <li class="nav-item"><a href="{{ route('register') }}" class="btn btn-outline-primary">Registrar</a></li>
+            @else
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               {{-- {{ auth()->user()->name }} --}}
+               {{ auth()->user()->name }}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="profile.html">Settings</a>
-                <a class="dropdown-item" href="#">
-                    {{-- onclick="event.preventDefault();
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }} --}}
+                    {{ __('Logout') }}
                 </a>
 
-                <form id="logout-form" action="#" method="POST" class="d-none">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
               </div>
             </li>
+            @endguest
           </ul>
         </div>
       </div>
@@ -62,7 +71,7 @@
     {{-- content --}}
     @yield('content')
 
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></s>
     <script src="{{ asset('js/popper.min.js')}}"></script>
     <script src="{{ asset('js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('js/app.js')}}"></script>
