@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('amendments', function (Blueprint $table) {
+        Schema::create('parliamentaries', function (Blueprint $table) {
             $table->id();
-            $table->string('parliamentary', 70);
-            $table->string('amendment', 8);
-            $table->string('caption', 200);
-            $table->string('work_program', 21);
-            $table->integer('nature_of_expense');
-            $table->decimal('price', $precision = 10, $scale = 2);
-            $table->string('viability')->nullable();
+            $table->string('name', 150);
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('amendments');
+        Schema::dropIfExists('parliamentaries');
     }
 };

@@ -8,24 +8,27 @@
 </p>
 
 ## comandos usados no git
-git init
-git add .
-git commit -m "...."
-git branch -M main
-git remote add origin https://github.com/NOVACAP/sisemendas.git
-git push -u origin main
+git init <br/>
+git add . <br/>
+git commit -m "...." <br/>
+git branch -M main <br/>
+git remote add origin https://github.com/NOVACAP/sisemendas.git <br/>
+git push -u origin main <br/>
 
 ## Comandos usados mo projeto artisan
-laravel new sisemendas
-php artisan make:model Amendment -crmfs
-composer require laravel/ui --dev
-php artisan ui:auth --doc https://laravel.com/docs/6.x/frontend
-composer require lucascudo/laravel-pt-br-localization --dev
-php artisan vendor:publish --tag=laravel-pt-br-localization
-// Altere Linha 83 do arquivo config/app.php para:
-'locale' => 'pt-BR',
-// Altere Linha 70 do arquivo config/app.php para:
-'timezone' => 'America/Sao_Paulo',
+laravel new sisemendas <br/>
+php artisan make:model Amendment -crmfs <br/>
+php artisan make:model Parliamentary -crmfs <br/>
+php artisan make:model Viability -crmfs <br/>
+php artisan make:model Progress -crmfs <br/>
+composer require laravel/ui --dev <br/>
+php artisan ui:auth --doc https://laravel.com/docs/6.x/frontend <br/>
+composer require lucascudo/laravel-pt-br-localization --dev <br/>
+php artisan vendor:publish --tag=laravel-pt-br-localization <br/>
+// Altere Linha 83 do arquivo config/app.php para: <br/>
+'locale' => 'pt-BR', <br/>
+// Altere Linha 70 do arquivo config/app.php para: <br/>
+'timezone' => 'America/Sao_Paulo', <br/>
 
 ## About Laravel
 

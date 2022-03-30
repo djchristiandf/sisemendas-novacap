@@ -10,7 +10,10 @@ class Amendment extends Model
     use HasFactory, FilterSearchScope;
 
     protected $fillable = [
-        'parliamentary',
+        'parliamentaries_id',
+        'progress_id',
+        'viabilities_id',
+        'users_id',
         'amendment',
         'caption',
         'work_program',
@@ -30,5 +33,20 @@ class Amendment extends Model
     public function scopeLatestFirst($query)
     {
         return $query->orderBy('id', 'desc');
+    }
+
+    public function viability()
+    {
+        return $this->hasOne(Viability::class);
+    }
+
+    public function progress()
+    {
+        return $this->hasOne(Progress::class);
+    }
+
+    public function parliamentary()
+    {
+        return $this->hasOne(Parliamentary::class);
     }
 }

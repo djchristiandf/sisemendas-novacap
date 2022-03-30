@@ -14,7 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
+        //$this->call(AmendmentSeeder::class);
+        $this->call(ViabilitySeeder::class);
+        $this->call(ProgressSeeder::class);
+        $this->call(ParliamentarySeeder::class);
         $this->call(AmendmentSeeder::class);
     }
 }
