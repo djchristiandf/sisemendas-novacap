@@ -11,6 +11,11 @@ class Parliamentary extends Model
     protected $table = 'parliamentarians';
     protected $fillable = ['name'];
 
+    public function scopeFirst($query)
+    {
+        return $query->orderBy('name', 'asc');
+    }
+
     public function amendments()
     {
         return $this->hasMany(Amendment::class);

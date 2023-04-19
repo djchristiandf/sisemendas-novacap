@@ -10,9 +10,9 @@
                 <strong>Adição de Parlamentar</strong>
               </div>
               <div class="card-body">
-                <form action="{{ route('parlamentaries.store')}}" method="POST">
+                <form action="{{ route('parliamentarians.store')}}" method="POST">
                     @csrf
-                    @include('parlamentaries._form')
+                    @include('parliamentarians._form')
                 </form>
               </div>
             </div>

@@ -12,14 +12,14 @@
                   <div class="d-flex align-items-center">
                     <h2 class="mb-0">Parlamentares</h2>
                     <div class="ml-auto">
-                      <a href="{{route('parlamentaries.create')}}" class="btn btn-success">
+                      <a href="{{route('parliamentarians.create')}}" class="btn btn-success">
                           <i class="fa fa-plus-circle"></i> Adicionar</a>
                     </div>
                   </div>
                 </div>
               <div class="card-body">
-                @include('parlamentaries._filter')
-                <table class="table table-bordered table-striped table-hover table-responsive" style="font-size: 13px;">
+                @include('parliamentarians._filter')
+                <table class="table table-bordered table-striped table-hover table-responsive" style="font-size: 13px;width:100%;">
                   <thead>
                     <tr class="text-center">
                       <th scope="col">#</th>
@@ -31,15 +31,15 @@
                       @if ($message = session('message'))
                         <div class="alert alert-success">{{ $message}}</div>
                       @endif
-                    @if ($parlamentaries->count())
-                        @foreach ($parlamentaries as $index => $parliamentary)
+                    @if ($parliamentarians->count())
+                        @foreach ($parliamentarians as $index => $parliamentary)
                            <tr>
-                            <th scope="row">{{ $index + $parlamentaries->firstItem()}}</th>
+                            <th scope="row">{{ $index + $parliamentarians->firstItem()}}</th>
                             <td>{{ $parliamentary->name}}</td>
                             <td width="150">
-                                <a href="{{ route('parlamentaries.show', $parliamentary->id)}}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('parlamentaries.edit', $parliamentary->id)}}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                                <a href="{{ route('parlamentaries.destroy', $parliamentary->id)}}" class="btn-delete btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-times"></i></a>
+                                <a href="{{ route('parliamentarians.show', $parliamentary->id)}}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                                <a href="{{ route('parliamentarians.edit', $parliamentary->id)}}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                                <a href="{{ route('parliamentarians.destroy', $parliamentary->id)}}" class="btn-delete btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-times"></i></a>
                             </td>
                             </tr>
                         @endforeach
@@ -65,7 +65,7 @@
                       </li>
                     </ul>
                   </nav> --}}
-                {{ $parlamentaries->appends(request()->only('id'))->links() }}
+                {{ $parliamentarians->appends(request()->only('id'))->links() }}
               </div>
             </div>
           </div>

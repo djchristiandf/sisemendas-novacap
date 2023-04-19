@@ -37,6 +37,7 @@
           @auth
             <ul class="navbar-nav">
             {{-- <li class="nav-item"><a href="#" class="nav-link">Emendas</a></li> --}}
+              <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a></li>
               <li class="nav-item active"><a href="{{ route('amendments.index') }}" class="nav-link">Emendas</a></li>
             </ul>
           @endauth
@@ -50,7 +51,7 @@
                {{ auth()->user()->name }}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="profile.html">Settings</a>
+                <a class="dropdown-item" href="profile.html">Configuração</a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">

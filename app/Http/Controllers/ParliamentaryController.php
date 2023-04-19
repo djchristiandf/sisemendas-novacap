@@ -15,9 +15,9 @@ class ParliamentaryController extends Controller
      */
     public function index()
     {
-        $parliamentarians = DB::table('parliamentarians')->get();
+        $parliamentarians = Parliamentary::First()->paginate(10);
 
-        return view('parliamentarians.index', ['parliamentarians' => $parliamentarians]);
+        return view('parliamentarians.index', compact('parliamentarians'));
     }
 
     /**
@@ -71,7 +71,7 @@ class ParliamentaryController extends Controller
     public function edit($id)
     {
         $parliamentary = Parliamentary::findOrFail($id);
-        return view('parliamentarians.show', compact('parliamentary'));
+        return view('parliamentarians.edit', compact('parliamentary'));
     }
 
     /**

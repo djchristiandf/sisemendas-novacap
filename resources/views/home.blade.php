@@ -20,14 +20,14 @@
                                 <h5 class="card-title">QUANTIDADE</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">EMENDAS CRIADAS</h6>
                                 <h1 class="card-text text-center">{{ DB::table('amendments')->count();}}</h1>
-                                <a href="#" class="card-link">Todas Emendas</a>
+                                <a href="{{ route('amendments.index') }}" class="card-link">Todas Emendas</a>
                             </div>
                         </div>
                         <div class="card" >
                             <div class="card-body">
                                 <h5 class="card-title">TOTAL</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">EMPENHADO</h6>
-                                <h1 class="card-text text-center">R$ 87.958.700,00</h1>
+                                <h1 class="card-text text-center">R$ {{ number_format(DB::table('amendments')->sum('price'), 2, ",","."); }}</h1>
                                 <a href="#" class="card-link">Gráficos</a>
                             </div>
                         </div>
