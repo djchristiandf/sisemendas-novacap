@@ -15,9 +15,9 @@ class ViabilitySeeder extends Seeder
      */
     public function run()
     {
-        if(DB::table('viabilities')->count() == 0){
+        if(DB::table('viability')->count() == 0){
 
-            DB::table('viabilities')->insert([
+            DB::table('viability')->insert([
 
                 [
                     'name' => 'Execução Viável',

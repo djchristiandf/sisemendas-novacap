@@ -19,7 +19,7 @@
                 </div>
               <div class="card-body">
                 @include('amendments._filter')
-                <table class="table table-bordered table-striped table-hover table-responsive" style="font-size: 13px;">
+                <table id="tblAmendment" class="table table-bordered table-striped table-hover table-responsive" style="font-size: 13px;">
                   <thead>
                     <tr class="text-center">
                       <th scope="col">#</th>
@@ -41,13 +41,13 @@
                         @foreach ($amendments as $index => $amendment)
                            <tr>
                             <th scope="row">{{ $index + $amendments->firstItem()}}</th>
-                            <td>{{ $amendment->parliamentary}}</td>
+                            <td>{{ Str::upper($amendment->parliamentary->name) ?? $amendment->parliamentarians_id}}</td>
                             <td>{{ $amendment->amendment}}</td>
                             <td>{{ $amendment->caption}}</td>
                             <td>{{ $amendment->work_program}}</td>
                             <td>{{ $amendment->nature_of_expense}}</td>
                             <td class="text-right">{{ $amendment->price > 0 ? number_format($amendment->price, 2, ',', '.') : '0'}}</td>
-                            <td>{{ $amendment->viability}}</td>
+                            <td>{{ $amendment->viability->name ?? $amendment->viability_id}}</td>
                             <td width="150">
                                 <a href="{{ route('amendments.show', $amendment->id)}}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
                                 <a href="{{ route('amendments.edit', $amendment->id)}}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>

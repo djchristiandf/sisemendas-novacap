@@ -36,13 +36,13 @@ Route::controller(AmendmentController::class)
 Route::controller(ParliamentaryController::class)
     ->middleware('auth')
     ->group(function () {
-    Route::get('/parliamentaries', 'index')->name('parliamentaries.index');
-    Route::post('/parliamentaries', 'store')->name('parliamentaries.store');
-    Route::get('/parliamentaries/create', 'create')->name('parliamentaries.create');
-    Route::get('/parliamentaries/{id}', 'show')->name('parliamentaries.show');
-    Route::put('/parliamentaries/{id}', 'update')->name('parliamentaries.update');
-    Route::delete('/parliamentaries/{id}', 'destroy')->name('parliamentaries.destroy');
-    Route::get('/parliamentaries/{id}/edit', 'edit')->name('parliamentaries.edit');
+    Route::get('/parliamentarians', 'index')->name('parliamentarians.index');
+    Route::post('/parliamentarians', 'store')->name('parliamentarians.store');
+    Route::get('/parliamentarians/create', 'create')->name('parliamentarians.create');
+    Route::get('/parliamentarians/{id}', 'show')->name('parliamentarians.show');
+    Route::put('/parliamentarians/{id}', 'update')->name('parliamentarians.update');
+    Route::delete('/parliamentarians/{id}', 'destroy')->name('parliamentarians.destroy');
+    Route::get('/parliamentarians/{id}/edit', 'edit')->name('parliamentarians.edit');
 });
 
 Route::controller(ProgressController::class)

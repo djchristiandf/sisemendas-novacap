@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col">
             <select id="filter_amendment_id" name="amendment_id" class="custom-select">
-              @foreach ($parliamentaries as $id => $parliamentary)
+              @foreach ($parliamentarians as $id => $parliamentary)
                   <option {{ $id == request()->query('id')  ? 'selected' : '' }} value="{{ $id }}">{{ $parliamentary }}</option>
               @endforeach
             </select>

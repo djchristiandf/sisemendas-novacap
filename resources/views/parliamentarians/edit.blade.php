@@ -10,10 +10,10 @@
                 <strong>Edição de Parlamentar</strong>
               </div>
               <div class="card-body">
-                <form action="{{ route('parliamentaries.update', $parliamentary->id)}}" method="POST">
+                <form action="{{ route('parliamentarians.update', $parliamentary->id)}}" method="POST">
                     @method('PUT')
                     @csrf
-                    @include('parliamentaries._form')
+                    @include('parliamentarians._form')
                 </form>
               </div>
             </div>

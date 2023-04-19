@@ -16,14 +16,15 @@ class AmendmentController extends Controller
     public function index()
     {
         //get all amendment
-        $parliamentaries = DB::table('amendments')
-                ->orderBy('parliamentary', 'asc')
-                ->get()
-                ->pluck('parliamentary', 'id')->prepend('Parlamentares','');
+        $parliamentarians = DB::table('parliamentarians')
+                ->orderBy('name', 'asc')
+                ->get();
         // $companies = companies()->orderBy('name')->pluck('name', 'id')->prepend('All Companies','');
         $amendments = Amendment::latestFirst()->paginate(10);
 
-        return view('amendments.index', compact('amendments', 'parliamentaries'));
+        //dd($amendments);
+
+        return view('amendments.index', compact('amendments', 'parliamentarians'));
     }
 
     /**

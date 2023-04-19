@@ -15,9 +15,9 @@ class ParliamentarySeeder extends Seeder
      */
     public function run()
     {
-        if(DB::table('parliamentaries')->count() == 0){
+        if(DB::table('parliamentarians')->count() == 0){
 
-            DB::table('parliamentaries')->insert([
+            DB::table('parliamentarians')->insert([
 
                 [
                     'name' => strtoupper('Agaciel Maia'),

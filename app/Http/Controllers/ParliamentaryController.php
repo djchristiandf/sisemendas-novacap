@@ -15,11 +15,9 @@ class ParliamentaryController extends Controller
      */
     public function index()
     {
-        $parliamentaries = DB::table('parliamentaries')
-                ->orderBy('name', 'asc')
-                ->get();
+        $parliamentarians = DB::table('parliamentarians')->get();
 
-        return view('parliamentaries.index', ['parlamentaries' => $parliamentaries]);
+        return view('parliamentarians.index', ['parliamentarians' => $parliamentarians]);
     }
 
     /**
@@ -30,7 +28,7 @@ class ParliamentaryController extends Controller
     public function create()
     {
         $parliamentary = new Parliamentary();
-        return view('parlamentaries.create', compact('parliamentary'));
+        return view('parliamentarians.create', compact('parliamentary'));
     }
 
     /**
@@ -49,7 +47,7 @@ class ParliamentaryController extends Controller
         Parliamentary::create($request->all());
 
 
-        return redirect()->route('parlamentaries.index')->with('message', 'Parlamentar salvo com sucesso.');
+        return redirect()->route('parliamentarians.index')->with('message', 'Parlamentar salvo com sucesso.');
     }
 
     /**
@@ -61,7 +59,7 @@ class ParliamentaryController extends Controller
     public function show($id)
     {
         $parliamentary = Parliamentary::findOrFail($id);
-        return view('parliamentaries.show', compact('parliamentary'));
+        return view('parliamentarians.show', compact('parliamentary'));
     }
 
     /**
@@ -73,7 +71,7 @@ class ParliamentaryController extends Controller
     public function edit($id)
     {
         $parliamentary = Parliamentary::findOrFail($id);
-        return view('parliamentaries.show', compact('parliamentary'));
+        return view('parliamentarians.show', compact('parliamentary'));
     }
 
     /**
@@ -91,7 +89,7 @@ class ParliamentaryController extends Controller
         $parliamentary = Parliamentary::findOrFail($id);
         $parliamentary->updated($request->all());
 
-        return redirect()->route('parliamentaries.index')->with('message', 'Parlamentar atualizado com sucesso.');
+        return redirect()->route('parliamentarians.index')->with('message', 'Parlamentar atualizado com sucesso.');
     }
 
     /**

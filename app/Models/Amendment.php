@@ -9,20 +9,22 @@ class Amendment extends Model
 {
     use HasFactory, FilterSearchScope;
 
+    protected $table = 'amendments';
+
     protected $fillable = [
-        'parliamentaries_id',
+        'parliamentarians_id',
         'progress_id',
-        'viabilities_id',
+        'viability_id',
         'users_id',
         'amendment',
         'caption',
         'work_program',
         'nature_of_expense',
-        'price',
-        'viability'];
+        'price'];
 
     public $filterColumns = ['id'];
-    public $searchColumns = ['parliamentary',
+    public $searchColumns = [
+        'parliamentary',
         'amendment',
         'caption',
         'work_program',
@@ -37,7 +39,7 @@ class Amendment extends Model
 
     public function viability()
     {
-        return $this->hasOne(Viability::class);
+        return $this->belongsTo(Viability::class, 'viability_id');
     }
 
     public function progress()
@@ -47,6 +49,6 @@ class Amendment extends Model
 
     public function parliamentary()
     {
-        return $this->hasOne(Parliamentary::class);
+        return $this->belongsTo(Parliamentary::class, 'parliamentarians_id');
     }
 }

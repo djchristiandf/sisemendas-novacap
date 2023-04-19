@@ -24,9 +24,9 @@ return new class extends Migration
             $table->decimal('price', $precision = 10, $scale = 2);
             //$table->string('viability')->nullable();
             $table->foreignId('users_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('parliamentaries_id')->constrained('parliamentaries')->onDelete('cascade');
+            $table->foreignId('parliamentarians_id')->constrained('parliamentarians')->onDelete('cascade');
             $table->foreignId('progress_id')->constrained('progress')->onDelete('cascade');
-            $table->foreignId('viabilities_id')->constrained('viabilities')->onDelete('cascade');
+            $table->foreignId('viability_id')->constrained('viability')->onDelete('cascade');
             $table->timestamps();
         });
     }

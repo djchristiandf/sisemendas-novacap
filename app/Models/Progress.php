@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Progress extends Model
 {
     use HasFactory;
+    protected $table = 'progress';
     protected $fillable = ['name'];
 
-    public function admentments()
+    public function amendments()
     {
         return $this->hasMany(Amendment::class);
     }
