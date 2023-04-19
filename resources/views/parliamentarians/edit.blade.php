@@ -13,7 +13,7 @@
                 <form action="{{ route('parliamentarians.update', $parliamentary->id)}}" method="POST">
                     @method('PUT')
                     @csrf
-                    @include('parliamentarians._form')
+                    @include('parliamentarians._formUpdate')
                 </form>
               </div>
             </div>

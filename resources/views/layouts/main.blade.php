@@ -39,6 +39,7 @@
             {{-- <li class="nav-item"><a href="#" class="nav-link">Emendas</a></li> --}}
               <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a></li>
               <li class="nav-item active"><a href="{{ route('amendments.index') }}" class="nav-link">Emendas</a></li>
+              <li class="nav-item"><a href="{{ route('parliamentarians.index') }}" class="nav-link">Parlamentares</a></li>
             </ul>
           @endauth
           <ul class="navbar-nav ml-auto">

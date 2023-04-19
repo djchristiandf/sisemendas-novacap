@@ -36,7 +36,7 @@
                                 <h5 class="card-title">PARLAMENTARES</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">ENVOLVIDOS</h6>
                                 <h1 class="card-text text-center">{{ DB::table('parliamentarians')->count();}}</h1>
-                                <a href="#" class="card-link">Envolvidos</a>
+                                <a href="{{ route('parliamentarians.index')}}" class="card-link">Envolvidos</a>
                             </div>
                         </div>
                         <div class="card" >
