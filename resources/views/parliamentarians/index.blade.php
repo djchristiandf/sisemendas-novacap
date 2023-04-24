@@ -2,6 +2,19 @@
 
 @section('title', 'SISEMENDAS | TODOS PARLAMENTARES')
 
+@section('script')
+    <script>
+        $(document).ready(function() {
+            var table = new DataTable('#tblParliamentary', {
+                language: {
+                    url: '////cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json',
+                },
+            });
+            $('#tblParliamentary').DataTable();
+        });
+    </script>
+@endsection
+
 @section('content')
 <main class="py-5">
       <div class="container">
@@ -18,8 +31,9 @@
                   </div>
                 </div>
               <div class="card-body">
-                @include('parliamentarians._filter')
-                <table class="table table-bordered table-striped table-hover table-responsive" style="font-size: 13px;width:100%;">
+                {{-- @include('parliamentarians._filter') --}}
+                <table id="tblParliamentary" class="table table-bordered table-striped table-hover table-responsive"
+                    style="width:100%;">
                   <thead>
                     <tr class="text-center">
                       <th scope="col">#</th>

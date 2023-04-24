@@ -21,7 +21,8 @@ class AmendmentController extends Controller
             ->orderBy('name', 'asc')
             ->get();
         // $companies = companies()->orderBy('name')->pluck('name', 'id')->prepend('All Companies','');
-        $amendments = Amendment::latestFirst()->paginate(10);
+        // $amendments = Amendment::latestFirst()->paginate(10);
+        $amendments = Amendment::latestFirst()->paginate(100);
 
         //dd($amendments);
 

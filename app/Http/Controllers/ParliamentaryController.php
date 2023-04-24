@@ -15,7 +15,7 @@ class ParliamentaryController extends Controller
      */
     public function index()
     {
-        $parliamentarians = Parliamentary::First()->paginate(10);
+        $parliamentarians = Parliamentary::First()->paginate(100);
 
         return view('parliamentarians.index', compact('parliamentarians'));
     }

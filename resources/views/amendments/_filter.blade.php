@@ -12,7 +12,9 @@
           </div>
           <div class="col">
             <div class="input-group mb-3">
-              <input type="text" name="search" id="search" value="{{ request()->query('search') }}" class="form-control" placeholder="Encontrar..." aria-label="Encontrar..." aria-describedby="button-addon2">
+              <input type="text" name="search" id="search"
+                value="{{ request()->query('search') }}" class="form-control"
+                placeholder="Encontrar..." aria-label="Encontrar..." aria-describedby="button-addon2">
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" id="btn-clear" type="button">
                   <i class="fa fa-refresh"></i>

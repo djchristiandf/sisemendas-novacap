@@ -24,13 +24,15 @@ class Amendment extends Model
 
     public $filterColumns = ['id'];
     public $searchColumns = [
-        'parliamentary',
         'amendment',
         'caption',
         'work_program',
         'nature_of_expense',
         'price',
-        'viability'];
+        'users_id',
+        'progress_id',
+        'parliamentarians_id',
+        'viability_id'];
 
     public function scopeLatestFirst($query)
     {
