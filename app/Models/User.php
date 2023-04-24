@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Amendment::class);
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
 }

@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group row">
-            <label for="first_name" class="col-md-3 col-form-label">Nome Parlamentar</label>
+            <label for="name" class="col-md-3 col-form-label">Nome Parlamentar</label>
             <div class="col-md-9">
-                <input type="text" name="parliamentary" value="{{ $parliamentary->name}}" id="amendment"
-                    class="form-control @error('amendment')
+                <input type="text" name="name" value="{{ $parliamentary->name}}" id="name"
+                    class="form-control @error('name')
                         is-invalid
                         @enderror">
                 {{-- @error('amendment')

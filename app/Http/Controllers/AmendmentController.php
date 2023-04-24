@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Amendment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AmendmentController extends Controller
@@ -17,8 +18,8 @@ class AmendmentController extends Controller
     {
         //get all amendment
         $parliamentarians = DB::table('parliamentarians')
-                ->orderBy('name', 'asc')
-                ->get();
+            ->orderBy('name', 'asc')
+            ->get();
         // $companies = companies()->orderBy('name')->pluck('name', 'id')->prepend('All Companies','');
         $amendments = Amendment::latestFirst()->paginate(10);
 
@@ -34,8 +35,17 @@ class AmendmentController extends Controller
      */
     public function create()
     {
+        $parliamentarians = DB::table('parliamentarians')
+            ->orderBy('name', 'asc')
+            ->get();
+        $progress = DB::table('progress')
+            ->orderBy('name', 'asc')
+            ->get();
+        $viability = DB::table('viability')
+            ->orderBy('name', 'asc')
+            ->get();
         $amendment = new Amendment();
-        return view('amendments.create', compact('amendment'));
+        return view('amendments.create', compact('amendment', 'parliamentarians', 'progress', 'viability'));
     }
 
     /**
@@ -46,17 +56,25 @@ class AmendmentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'parliamentary' => 'required',
+
+        $id = Auth::id();
+        //dd($id);
+        $data = $request->validate([
             'amendment' => 'required',
             'caption' => 'required',
             'work_program' => 'required',
             'nature_of_expense' => 'required',
             'price' => 'required',
+            'users_id' => 'required',
+            'parliamentarians_id' => 'required',
+            'progress_id' => 'required',
+            'viability_id' => 'required',
         ]);
-
+        //dd($request);
+        $data = $request->all();
+        $data['price'] = floatval($data['price']);
         //2 ways
-        Amendment::create($request->all());
+        Amendment::create($data);
 
 
         return redirect()->route('amendments.index')->with('message', 'A emenda foi salva com sucesso.');
@@ -83,7 +101,16 @@ class AmendmentController extends Controller
     public function edit($id)
     {
         $amendment = Amendment::findOrFail($id);
-        return view('amendments.edit', compact('amendment'));
+        $parliamentarians = DB::table('parliamentarians')
+            ->orderBy('name', 'asc')
+            ->get();
+        $progress = DB::table('progress')
+            ->orderBy('name', 'asc')
+            ->get();
+        $viability = DB::table('viability')
+            ->orderBy('name', 'asc')
+            ->get();
+        return view('amendments.edit', compact('amendment', 'parliamentarians', 'progress', 'viability'));
     }
 
     /**

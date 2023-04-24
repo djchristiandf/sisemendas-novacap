@@ -42,7 +42,7 @@ class ParliamentaryController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
-
+        dd('chegou aqui');
         //2 ways
         Parliamentary::create($request->all());
 
@@ -86,6 +86,7 @@ class ParliamentaryController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
+        dd($request);
         $parliamentary = Parliamentary::findOrFail($id);
         $parliamentary->updated($request->all());
 
